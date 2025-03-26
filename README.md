@@ -37,9 +37,11 @@ The final step is to run the script, which should automatically update your syst
 
 sudo ./install_boinc.sh
 
-If all went well, you should now have the boinc client running on your system. To verify boinc is running use the following command
+If all went well, you should now have the boinc client running on your system. To verify BOINC is running, use the following command
 
 boinccmd --get_state
+
+If you need further information on how to use the BOINC client in CLI, see here: https://github.com/BOINC/boinc/wiki/Boinccmd_tool
 
 
 
