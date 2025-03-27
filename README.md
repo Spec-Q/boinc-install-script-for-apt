@@ -1,4 +1,4 @@
-# boinc-install-script-for-atp
+# boinc-install-script-for-apt
 A bash script to simplify the installation and set-up of the BOINC Client when operating in a headless(CLI) or Desktop Environment using APT
 
 Instructions for use, if you are inexperienced, please read these steps through fully before proceeding. These steps are provided as a guide and in my test cases this process proved successful. I'm happy for contributions to be made for the script or these instructions, as long as it is complient to the license. 
