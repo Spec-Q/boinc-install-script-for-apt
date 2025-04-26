@@ -17,11 +17,12 @@ echo "Using account key $ACCOUNT_KEY "
 echo ""
 
 # === CONFIGURATION ===
-CPU_PERCENT=75.0                                   # % of cores to use
-CPU_USAGE_LIMIT=80                                 # Max % CPU load per core
+#CPU_PERCENT=75.0                                   # % of cores to use
+#CPU_USAGE_LIMIT=80                                 # Max % CPU load per core
 USER_TO_ADD="$USER"                                # Add current user to 'boinc' group
 
 # === UPDATE & INSTALL ===
+
 while true; do
 
 read -p "Would you like to update packages prior to installing the boinc-client? (y/n)" SYSTEM_UPDATE
@@ -67,8 +68,41 @@ echo "Attaching to BOINC project..."
 boinccmd --project_attach "$PROJECT_URL" "$ACCOUNT_KEY"
 
 # === CONFIGURE CPU USAGE ===
+
+while true; do
+
 echo ""
-echo "Setting CPU usage limits..."
+echo "Setting CPU percentage to script defaults of 75%"
+read -p  "     Is this OK? (y/n)"
+
+case $CPU_PERCENT in
+	[yY] ) echo "OK! using default CPU percentage!"
+		CPU_PERCENT=75.0
+		break;;
+	[nN] ) read -p "OK! What % for CPU usage? (0-100)" $CPU_PERCENT
+		break;;
+	* ) echo "***Not a valid responce!!!***"
+
+esac
+done
+
+while true; do
+
+echo""
+echo "Setting CPU usage to script default of 80%"
+read -p "	Is this OK (y/n)"
+
+case $CPU_USAGE_LIMIT in
+	[yY] ) echo "OK! Using default CPU usage limit!"
+		CPU_USAGE_LIMIT=80
+		break;;
+	[nN] ) read -p "OK! What % for CPU usage limit? (0-100)" $CPU_USAGE_LIMIT
+		break;;
+	* ) echo "***Not a valid responce!!!***"
+
+esac
+done
+
 echo "CPU set to $CPU_PERCENT%"
 echo "CPU usage set to $CPU_USAGE_LIMIT"
 sudo tee /var/lib/boinc-client/cc_config.xml >/dev/null <<EOF
