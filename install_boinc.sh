@@ -101,6 +101,7 @@ case $CPU_USAGE_LIMIT_SETUP in
 esac
 done
 
+echo""
 echo "CPU set to $CPU_PERCENT%"
 echo "CPU usage set to $CPU_USAGE_LIMIT"
 sudo tee /var/lib/boinc-client/cc_config.xml >/dev/null <<EOF
@@ -123,3 +124,5 @@ echo ""
 echo "✅ BOINC installation and configuration complete."
 echo "➡️  Reboot or run: 'newgrp boinc' to apply group permissions."
 echo "➡️  Use 'boinccmd --get_state' to check status."
+echo ""
+echo "Thank you for running GOTSpectrum's BOINC Install Script!"
