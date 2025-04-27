@@ -17,8 +17,8 @@ echo "Using account key $ACCOUNT_KEY "
 echo ""
 
 # === CONFIGURATION ===
-#CPU_PERCENT=75.0                                   # % of cores to use
-#CPU_USAGE_LIMIT=80                                 # Max % CPU load per core
+CPU_PERCENT=75.0                                   # % of cores to use
+CPU_USAGE_LIMIT=80                                 # Max % CPU load per core
 USER_TO_ADD="$USER"                                # Add current user to 'boinc' group
 
 # === UPDATE & INSTALL ===
@@ -73,13 +73,12 @@ while true; do
 
 echo ""
 echo "Setting CPU percentage to script defaults of 75%"
-read -p  "     Is this OK? (y/n)"
+read -p  "     Is this OK? (y/n)" CPU_PERCENT_SETUP
 
-case $CPU_PERCENT in
+case $CPU_PERCENT_SETUP in
 	[yY] ) echo "OK! using default CPU percentage!"
-		CPU_PERCENT=75.0
 		break;;
-	[nN] ) read -p "OK! What % for CPU usage? (0-100)" $CPU_PERCENT
+	[nN] ) read -p "OK! What % for CPU usage? (0-100)" CPU_PERCENT
 		break;;
 	* ) echo "***Not a valid responce!!!***"
 
@@ -90,13 +89,12 @@ while true; do
 
 echo""
 echo "Setting CPU usage to script default of 80%"
-read -p "	Is this OK (y/n)"
+read -p "	Is this OK (y/n)" CPU_USAGE_LIMIT_SETUP
 
-case $CPU_USAGE_LIMIT in
+case $CPU_USAGE_LIMIT_SETUP in
 	[yY] ) echo "OK! Using default CPU usage limit!"
-		CPU_USAGE_LIMIT=80
 		break;;
-	[nN] ) read -p "OK! What % for CPU usage limit? (0-100)" $CPU_USAGE_LIMIT
+	[nN] ) read -p "OK! What % for CPU usage limit? (0-100)" CPU_USAGE_LIMIT
 		break;;
 	* ) echo "***Not a valid responce!!!***"
 
