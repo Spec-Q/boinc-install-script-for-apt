@@ -1,7 +1,9 @@
 # boinc-install-script-for-apt
 A bash script to simplify the installation and set-up of the BOINC Client when operating in a headless(CLI) or Desktop Environment using APT
 
-Instructions for use, if you are inexperienced, please read these steps through fully before proceeding. These steps are provided as a guide and in my test cases this process proved successful. I'm happy for contributions to be made for the script or these instructions, as long as it is complient to the license. 
+***Instructions for use***
+
+  If you are inexperienced, please read these steps through fully before proceeding. These steps are provided as a guide and in my test cases this process proved successful. I'm happy for contributions to be made for the script or these instructions, as long as it is complient to the license. 
 
 First step is to boot your computer running a Debian-based system with apt support. In my case, an Orange Pi 4A.
 
@@ -13,29 +15,23 @@ This creates a folder named boinc-install-script-for-apt. Next, we need to navig
 
 cd ~/boinc-install-script-for-apt
 
-We now need to edit the script so you can select your project and enter your account key. 
-
-sudo nano install_boinc.sh
-
-You will need to edit two lines at the top of the document. 
-
-"PROJECT_URL="https://www.worldcommunitygrid.org"   # <- Change to your project" (Change the project URL to the project you would like to contribute towards)
-
-"ACCOUNT_KEY="REPLACE_WITH_YOUR_ACCOUNT_KEY"        # <- Replace with your actual key" (Change with your account key found on the account page at the projects website)
-
-After editing the two lines use the following shortcuts to save the changes. 
-
-Press Ctrl + X to exit
-Press Y to confirm changes
-Press Enter to save
-
-We then need to make the script executable using chmod. 
+We now need to edit the scripts permissions using the chmod command.
 
 sudo chmod +x /install_boinc.sh
 
-The final step is to run the script, which should automatically update your system, install the client, and get it configured to run the project you specified. 
+The next step is to run the script, it will ask for the projects web address and your account key.
+Then it will ask if you want to update your system and install the BOINC Client.
+Have your project's web address and your account key ready to type or paste into the terminal.
 
 sudo ./install_boinc.sh
+
+Now you should be prompted to for the projects web address. Type or paste it into the terminal and press enter.
+    Examples: https://www.primegrid.com   https://numberfields.asu.edu/NumberFields/   https://asteroidsathome.net/boinc/
+
+Next you should be asked for your account key. The account key should be found in your acount with the project after signing up.
+***Do not used the Cross-Project ID.***
+
+Now you should be asked if you would like to update your computers packages and also install the BOINC Client.
 
 If all went well, you should now have the boinc client running on your system. To verify BOINC is running, use the following command
 
