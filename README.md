@@ -32,6 +32,9 @@ Next you should be asked for your account key. The account key should be found i
 ***Do not used the Cross-Project ID.***
 
 Now you should be asked if you would like to update your computers packages and also install the BOINC Client.
+Reccomended that you answer "y" if it has been while since updating packages
+
+After that you should be asked how much of your CPU you would like to use and it's usage. This scripts defaults is currently set to 75% of cores and max load of 80% per core.
 
 If all went well, you should now have the boinc client running on your system. To verify BOINC is running, use the following command
 
